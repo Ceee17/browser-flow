@@ -26,7 +26,10 @@ High-level backlog. Updated after each session.
 - [ ] License-audit script
 - [ ] Docker Compose scaffolding
 - [ ] GitHub Actions CI (lint + test)
-- [ ] `packages/workflow-schema` package initialized
+- [x] `packages/workflow-schema` package initialized
+- [x] `packages/selector-engine` package initialized
+- [x] `packages/browser-engine` package initialized
+- [x] `packages/scheduler` package initialized
 
 ---
 

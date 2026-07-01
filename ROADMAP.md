@@ -11,12 +11,13 @@
 
 - [x] Repository scaffolding (monorepo, pnpm, Turbo)
 - [x] `workflow-schema` package (JSON schema + Zod validation)
-- [ ] `selector-engine` package initial structure
-- [ ] `browser-engine` package initial structure
+- [x] `selector-engine` package initial structure
+- [x] `browser-engine` package initial structure
+- [x] `scheduler` package initial structure
 - [ ] NestJS API scaffolding with Postgres + Redis + BullMQ
 - [ ] Agent runner scaffolding (register/poll/execute)
 - [ ] Docker Compose for local dev
-- [ ] GitHub Actions CI (lint + test + build)
+- [x] GitHub Actions CI (lint + test)
 
 ---
 
