@@ -1,0 +1,28 @@
+{
+  "name": "browserflow",
+  "private": true,
+  "description": "AI-Native Browser Automation Platform — open core, cloud-native, browser-first.",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=8.6.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "fmt": "prettier --write \"**/*.{ts,tsx,json,md,yaml,yml}\"",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "turbo run build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.26.2",
+    "prettier": "^3.2.5",
+    "turbo": "^1.11.2",
+    "typescript": "~5.4.0"
+  },
+  "packageManager": "pnpm@8.7.0"
+}

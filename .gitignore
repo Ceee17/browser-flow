@@ -1,0 +1,51 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Build outputs
+dist
+build
+.next
+out
+coverage
+
+# Cache
+.turbo
+.nx
+.cache
+.eslintcache
+
+# Environment
+.env
+.env.*.local
+.env.local
+.env.*.local
+
+# Logs
+logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# IDE
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test
+playwright-report
+test-results
+
+# Misc
+*.tsbuildinfo
+tmp
+temp
