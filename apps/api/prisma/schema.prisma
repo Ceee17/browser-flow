@@ -1,0 +1,122 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Organization {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String   @db.VarChar(255)
+  slug        String   @unique @db.VarChar(255)
+  createdAt   DateTime @default(now()) @db.Timestamptz
+  updatedAt   DateTime @updatedAt @db.Timestamptz
+
+  members     Membership[]
+  projects    Project[]
+}
+
+model User {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email          String    @unique @db.VarChar(255)
+  name           String?   @db.VarChar(255)
+  passwordHash   String    @db.VarChar(255)
+  createdAt      DateTime  @default(now()) @db.Timestamptz
+  updatedAt      DateTime  @updatedAt @db.Timestamptz
+
+  memberships    Membership[]
+}
+
+model Membership {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orgId      String   @db.Uuid
+  userId     String   @db.Uuid
+  role       String   @default("member") @db.VarChar(50)
+  createdAt  DateTime @default(now()) @db.Timestamptz
+
+  org        Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  user       User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([orgId, userId])
+}
+
+model Project {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orgId       String   @db.Uuid
+  name        String   @db.VarChar(255)
+  key         String   @db.VarChar(50)
+  createdBy   String   @db.Uuid
+  createdAt   DateTime @default(now()) @db.Timestamptz
+  updatedAt   DateTime @updatedAt @db.Timestamptz
+
+  org         Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  workflows   Workflow[]
+  executions  Execution[]
+
+  @@unique([orgId, key])
+}
+
+model Workflow {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  projectId   String   @db.Uuid
+  version     Int      @default(1)
+  name        String   @db.VarChar(255)
+  description String?
+  schemaJson  Json
+  stepsCount  Int      @default(0)
+  createdBy   String   @db.Uuid
+  createdAt   DateTime @default(now()) @db.Timestamptz
+  updatedAt   DateTime @updatedAt @db.Timestamptz
+
+  project     Project     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  executions  Execution[]
+  schedules   Schedule[]
+
+  @@index([projectId])
+}
+
+model Execution {
+  id           String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workflowId   String    @db.Uuid
+  agentId      String?   @db.Uuid
+  status       String    @default("queued") @db.VarChar(50)
+  triggerBy    String?   @db.Uuid
+  triggerSource String   @default("manual") @db.VarChar(50)
+  startedAt    DateTime? @db.Timestamptz
+  finishedAt   DateTime? @db.Timestamptz
+  resultJson   Json?
+  createdAt    DateTime  @default(now()) @db.Timestamptz
+
+  workflow     Workflow   @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+  project     Project?   @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  projectId   String     @db.Uuid
+
+  @@index([workflowId])
+  @@index([agentId])
+  @@index([status])
+}
+
+model Schedule {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  workflowId  String    @db.Uuid
+  cronExpr    String    @db.VarChar(255)
+  webhookPath String?   @db.VarChar(255)
+  enabled     Boolean   @default(true)
+  lastRunAt   DateTime? @db.Timestamptz
+  createdAt   DateTime  @default(now()) @db.Timestamptz
+  updatedAt   DateTime  @updatedAt @db.Timestamptz
+
+  workflow    Workflow @relation(fields: [workflowId], references: [id], onDelete: Cascade)
+}
+
+model VaultSecret {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  orgId      String   @db.Uuid
+  projectId  String?  @db.Uuid
+  name       String   @db.VarChar(255)
+  valueJson  Json
+  createdAt  DateTime @default(now()) @db.Timestamptz
+  updatedAt  DateTime @updatedAt @db.Timestamptz
+}
