@@ -30,14 +30,16 @@ High-level backlog. Updated after each session.
 - [x] `packages/selector-engine` package initialized
 - [x] `packages/browser-engine` package initialized
 - [x] `packages/scheduler` package initialized
+- [x] `packages/shared-types` package initialized
+- [x] `packages/sdk` package initialized
 
 ---
 
 ## v0.1 — Core Runtime (Next)
 
 - [ ] Finalize workflow-schema Zod schema
-- [ ] `packages/browser-engine` Playwright wrapper
-- [ ] `packages/selector-engine` multi-strategy selector scoring
+- [ ] `packages/browser-engine` full Playwright wrapper
+- [ ] `packages/selector-engine` scoring + DOM heuristics
 - [ ] `apps/api` NestJS with auth + projects + workflows + executions + agents
 - [ ] `apps/agent-runner` Node.js runner daemon
 - [ ] End-to-end test: runner executes workflow and returns artifacts
@@ -56,6 +58,6 @@ High-level backlog. Updated after each session.
 ## v0.3 — Production Ready (Next)
 
 - [ ] Credential vault
-- [ ] Scheduler
+- [ ] Scheduler BullMQ dispatch
 - [ ] Recorder extension scaffold
 - [ ] Runner installer artifacts

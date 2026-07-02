@@ -14,10 +14,13 @@
 - [x] `selector-engine` package initial structure
 - [x] `browser-engine` package initial structure
 - [x] `scheduler` package initial structure
+- [x] `shared-types` package initial structure
+- [x] `sdk` package initial structure
 - [ ] NestJS API scaffolding with Postgres + Redis + BullMQ
 - [ ] Agent runner scaffolding (register/poll/execute)
 - [ ] Docker Compose for local dev
 - [x] GitHub Actions CI (lint + test)
+- [x] Push initial commit to GitHub (github.com/Ceee17/browser-flow)
 
 ---
 

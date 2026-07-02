@@ -62,6 +62,25 @@ importers:
         specifier: ^1.2.0
         version: 1.6.1(@types/node@20.19.43)
 
+  packages/sdk:
+    dependencies:
+      '@browserflow/shared-types':
+        specifier: workspace:*
+        version: link:../shared-types
+      zod:
+        specifier: ^3.22.4
+        version: 3.25.76
+    devDependencies:
+      '@types/node':
+        specifier: ^20.11.0
+        version: 20.19.43
+      typescript:
+        specifier: ~5.4.0
+        version: 5.4.5
+      vitest:
+        specifier: ^1.2.0
+        version: 1.6.1(@types/node@20.19.43)
+
   packages/selector-engine:
     dependencies:
       zod:
@@ -77,6 +96,21 @@ importers:
       vitest:
         specifier: ^1.2.0
         version: 1.6.1(@types/node@20.19.43)
+
+  packages/shared-types:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.11.0
+        version: 20.19.43
+      typescript:
+        specifier: ~5.4.0
+        version: 5.4.5
+      vitest:
+        specifier: ^1.2.0
+        version: 1.6.1(@types/node@20.19.43)
+      zod:
+        specifier: ^3.22.4
+        version: 3.25.76
 
   packages/workflow-schema:
     dependencies:
@@ -2049,4 +2083,3 @@ packages:
 
   /zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
-    dev: false

@@ -17,5 +17,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - `selector-engine` package with selector resolution + confidence scoring.
 - `browser-engine` package with Playwright action wrapper (14 browser actions).
 - `scheduler` package skeleton with trigger types (manual, cron, webhook, API).
+- `shared-types` package with shared domain interfaces.
+- `sdk` package with REST API client scaffold.
 - CI workflow with lint + test jobs.
-- 6+ passing unit tests across packages.
+- 6 packages with passing unit tests (19 total tests).
+- Initial GitHub remote sync to github.com/Ceee17/browser-flow
