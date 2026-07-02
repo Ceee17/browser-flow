@@ -22,3 +22,5 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 - CI workflow with lint + test jobs.
 - 6 packages with passing unit tests (19 total tests).
 - Initial GitHub remote sync to github.com/Ceee17/browser-flow
+- NestJS API app scaffold: health controller, Prisma schema, auth stub modules
+- 4 core feature modules scaffolded: projects, workflows, executions, agents

@@ -25,13 +25,14 @@ High-level backlog. Updated after each session.
 - [ ] `.claude` or agent rules file
 - [ ] License-audit script
 - [ ] Docker Compose scaffolding
-- [ ] GitHub Actions CI (lint + test)
+- [x] GitHub Actions CI (lint + test)
 - [x] `packages/workflow-schema` package initialized
 - [x] `packages/selector-engine` package initialized
 - [x] `packages/browser-engine` package initialized
 - [x] `packages/scheduler` package initialized
 - [x] `packages/shared-types` package initialized
 - [x] `packages/sdk` package initialized
+- [x] `apps/api` NestJS app scaffold with auth + health + Prisma schema
 
 ---
 
