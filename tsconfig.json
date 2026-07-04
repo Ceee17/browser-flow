@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/api" },
+    { "path": "./packages/shared-types" },
+    { "path": "./packages/workflow-schema" },
+    { "path": "./packages/selector-engine" },
+    { "path": "./packages/browser-engine" },
+    { "path": "./packages/scheduler" },
+    { "path": "./packages/sdk" }
+  ]
+}
