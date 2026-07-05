@@ -24,7 +24,7 @@ High-level backlog. Updated after each session.
 - [ ] CODE_OF_CONDUCT.md
 - [ ] `.claude` or agent rules file
 - [ ] License-audit script
-- [ ] Docker Compose scaffolding
+- [x] Docker Compose scaffolding
 - [x] GitHub Actions CI (lint + test)
 - [x] `packages/workflow-schema` package initialized
 - [x] `packages/selector-engine` package initialized
@@ -33,6 +33,7 @@ High-level backlog. Updated after each session.
 - [x] `packages/shared-types` package initialized
 - [x] `packages/sdk` package initialized
 - [x] `apps/api` NestJS app scaffold with auth + health + Prisma schema
+- [x] `apps/agent-runner` Node.js runner daemon scaffold
 
 ---
 

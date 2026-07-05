@@ -17,8 +17,8 @@
 - [x] `shared-types` package initial structure
 - [x] `sdk` package initial structure
 - [x] NestJS API scaffolding with Postgres + Redis + BullMQ
-- [ ] Agent runner scaffolding (register/poll/execute)
-- [ ] Docker Compose for local dev
+- [x] Agent runner scaffolding (register/poll/execute)
+- [x] Docker Compose for local dev
 - [x] GitHub Actions CI (lint + test)
 - [x] Push initial commit to GitHub (github.com/Ceee17/browser-flow)
 - [~] SSH auth setup for Git (github.com/Ceee17/browser-flow via SSH)

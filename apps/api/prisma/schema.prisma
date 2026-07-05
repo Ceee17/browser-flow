@@ -120,3 +120,18 @@ model VaultSecret {
   createdAt  DateTime @default(now()) @db.Timestamptz
   updatedAt  DateTime @updatedAt @db.Timestamptz
 }
+
+model Agent {
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  projectId String   @db.Uuid
+  name      String   @db.VarChar(255)
+  platform  String   @db.VarChar(50)
+  region    String   @db.VarChar(50)
+  isActive  Boolean  @default(true)
+  lastSeenAt DateTime @default(now()) @db.Timestamptz
+  createdAt DateTime @default(now()) @db.Timestamptz
+  updatedAt DateTime @updatedAt @db.Timestamptz
+
+  @@index([projectId])
+  @@index([isActive])
+}

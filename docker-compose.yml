@@ -17,6 +17,9 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+    command: >
+      postgres
+      -c shared_preload_libraries=pgcrypto
 
   redis:
     image: redis:7-alpine
@@ -42,8 +45,8 @@ services:
     environment:
       NODE_ENV: production
       PORT: 4000
-      DATABASE_URL: postgresql://browserflow:browserflow@postgres:5432/browserflow?schema=public
-      REDIS_URL: redis://redis:6379
+      DATABASE_URL: postgresql://browserflow:***@postgres:5432/browserflow?schema=public
+      REDIS_URL: redis://redis:***@postgres:5432/browserflow?schema=public
     depends_on:
       postgres:
         condition: service_healthy
@@ -51,7 +54,27 @@ services:
         condition: service_healthy
     command: >
       sh -c "
-        npx prisma db push &&
+        npx prisma migrate deploy &&
+        node dist/main
+      "
+
+  agent-runner:
+    build:
+      context: .
+      dockerfile: apps/agent-runner/Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgresql://browserflow:***@postgres:5432/browserflow?schema=public
+      REDIS_URL: redis://redis:***@postgres:5432/browserflow?schema=public
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: >
+      sh -c "
+        npx prisma migrate deploy &&
         node dist/main
       "
 
