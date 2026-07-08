@@ -2,31 +2,42 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.1.0] - 2026-07-04
+## [0.1.0] - 2026-07-06
+
+### Added
+- Real JWT auth backed by Postgres + Prisma + bcrypt
+- `POST /api/v1/auth/register` for self-service signup
+- `POST /api/v1/auth/login` with bcrypt password verification
+- `GET /api/v1/auth/me` protected endpoint returning current user
+- Swagger UI at `/docs` with bearer auth
+- `apps/agent-runner`: NestJS microservice daemon scaffold
+- Prisma initial migration (`0001_init`) with pgcrypto extension
+- Docker Compose for local dev (Postgres, Redis, API, agent-runner)
+
+### Changed
+- Replaced stub `AuthService` with real implementation using PrismaService
+- Marked v0.1 Core Runtime items complete in `ROADMAP.md`
+
+### Fixed
+- TypeScript build errors: guard imports, strategy import, config module rename
+- Jest `rootDir` mismatch causing CI to miss tests
+- Missing root `tsconfig.json` for ESLint parserOptions.project
+
+### Security
+- Switched Git auth to SSH; configured global URL rewrite to prevent HTTPS credential leakage
+- Passwords hashed with bcrypt (cost 10) before storage
+- JWT signed with HS256 and env-configured secret
+
+## [0.0.1] - 2026-07-02
 
 ### Added
 - Monorepo bootstrap with pnpm workspaces + Turborepo
-- `packages/workflow-schema`: Zod-validated JSON workflow schema v1 (15 step types, selector confidence scoring)
-- `packages/selector-engine`: Multi-strategy selector resolution with primary/fallback ordering and confidence scoring
-- `packages/browser-engine`: Playwright wrapper with 14 browser actions
-- `packages/scheduler`: Trigger types for manual, cron, webhook, and API execution
-- `packages/shared-types`: Shared TypeScript types for cross-package usage
-- `packages/sdk`: BrowserFlow SDK for workflow interaction
-- `apps/api`: NestJS app with health controller, Prisma schema, auth stubs, and 4 feature modules (projects, workflows, executions, agents)
-- `apps/agent-runner`: Node.js NestJS microservice daemon scaffold for register/poll/execute
-- Docker Compose for local development (Postgres, Redis, API, agent-runner)
-- Prisma initial migration (`0001_init`) with proper schema versioning
-- Swagger UI (`@nestjs/swagger`) for interactive API documentation at `/docs`
-- `.eslintrc.json` with strict TypeScript parser options
-- GitHub Actions CI workflow (lint + test)
-
-### Fixed
-- Root `tsconfig.json` missing for ESLint parserOptions.project reference
-- Jest `rootDir` mismatch causing CI to miss tests
-- Agent registration raw SQL replaced with Prisma Client native query
-- Added `Agent` model to Prisma schema for proper type safety
-
-### Security
-- Switched Git remote from HTTPS to SSH for all operations
-- Configured global Git URL rewrite rule to prevent accidental HTTPS credential usage
-- Retained Apache-2.0 license for unrestricted commercial distribution
+- `packages/workflow-schema`: Zod-validated JSON workflow schema
+- `packages/selector-engine`: Multi-strategy selector resolution
+- `packages/browser-engine`: Playwright wrapper scaffold
+- `packages/scheduler`: Trigger types scaffold
+- `packages/shared-types`: Shared TypeScript types
+- `packages/sdk`: BrowserFlow SDK scaffold
+- `apps/api`: NestJS scaffold with health controller + auth stubs
+- GitHub Actions CI (lint + test)
+- Apache-2.0 license
