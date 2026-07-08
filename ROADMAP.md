@@ -28,11 +28,11 @@
 ## Phase 1: MVP (v0.1–v0.3) — ~12 weeks
 
 ### v0.1 — Core Runtime (Weeks 1–4)
-- [ ] Workflow JSON schema v1 finalized
-- [ ] Browser engine: 15 core Playwright actions
-- [ ] Selector engine: XPath, CSS, ARIA, text candidates + confidence
-- [ ] Agent runner: register, poll, execute, heartbeat
-- [ ] API: auth, projects, workflows, executions, agent endpoints
+- [x] Workflow JSON schema v1 finalized
+- [x] Browser engine: 15 core Playwright actions
+- [x] Selector engine: XPath, CSS, ARIA, text candidates + confidence
+- [x] Agent runner: register, poll, execute, heartbeat
+- [x] API: auth, projects, workflows, executions, agents
 - [ ] End-to-end: runner executes workflow, uploads logs + screenshot
 
 ### v0.2 — Basic Control Room (Weeks 5–8)
