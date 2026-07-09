@@ -41,7 +41,17 @@ export default function WorkflowsPage() {
 
   return (
     <div className="mx-auto max-w-3xl">
-      <h1 className="text-xl font-semibold text-slate-900">Workflows</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-xl font-semibold text-slate-900">Workflows</h1>
+        {projectId && (
+          <a
+            href={`/workflows/builder/${projectId}`}
+            className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-700"
+          >
+            + New workflow
+          </a>
+        )}
+      </div>
 
       {!projectId ? (
         <p className="mt-4 text-sm text-slate-500">Select a project to view its workflows.</p>
