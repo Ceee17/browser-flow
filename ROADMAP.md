@@ -36,9 +36,9 @@
 - [ ] End-to-end: runner executes workflow, uploads logs + screenshot
 
 ### v0.2 — Basic Control Room (Weeks 5–8)
-- [ ] Next.js frontend scaffolded
-- [ ] Auth UI (email/password)
-- [ ] Dashboard: project list, workflow list, execution history
+- [x] Next.js frontend scaffolded
+- [x] Auth UI (email/password)
+- [x] Dashboard: project list, workflow list, execution history
 - [ ] React Flow workflow builder (10 node types)
 - [ ] Real-time execution logs via WebSocket
 - [ ] Agent health monitoring

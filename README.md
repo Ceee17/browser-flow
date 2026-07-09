@@ -21,22 +21,24 @@ BrowserFlow is an open-core browser automation platform designed to replace lega
 ## Quickstart (Docker Compose)
 
 ```bash
-git clone https://github.com/browserflow/core.git
-cd core
+git clone https://github.com/Ceee17/browser-flow.git
+cd browser-flow
 cp .env.example .env
 docker compose up -d
 ```
 
 Access:
-- Control Room: http://localhost:3000
+- Web App: http://localhost:3000
 - API: http://localhost:4000
-- Docs: http://localhost:4000/api/docs
+- API Docs: http://localhost:4000/docs
 
 ## Repository Structure
 
-- `apps/` — control-room, api, agent-runner, recorder-extension
-- `packages/` — workflow-schema, workflow-engine, browser-engine, selector-engine, sdk, shared-types
-- `infra/` — docker, k8s, terraform, ci
+- `apps/web` — Next.js frontend (control room)
+- `apps/api` — NestJS API
+- `apps/agent-runner` — Runner daemon
+- `apps/recorder-extension` — Chrome MV3 recorder
+- `packages/` — workflow-schema, selector-engine, browser-engine, scheduler, sdk, shared-types
 - `docs/` — PRD, SAD, ADRs, API spec
 
 ## Development

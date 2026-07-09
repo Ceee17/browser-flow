@@ -39,19 +39,19 @@ High-level backlog. Updated after each session.
 
 ## v0.1 — Core Runtime (Next)
 
-- [ ] Finalize workflow-schema Zod schema
-- [ ] `packages/browser-engine` full Playwright wrapper
-- [ ] `packages/selector-engine` scoring + DOM heuristics
-- [ ] `apps/api` NestJS with auth + projects + workflows + executions + agents
-- [ ] `apps/agent-runner` Node.js runner daemon
+- [x] Finalize workflow-schema Zod schema
+- [x] `packages/browser-engine` full Playwright wrapper
+- [x] `packages/selector-engine` scoring + DOM heuristics
+- [x] `apps/api` NestJS with auth + projects + workflows + executions + agents
+- [x] `apps/agent-runner` Node.js runner daemon
 - [ ] End-to-end test: runner executes workflow and returns artifacts
 
 ---
 
 ## v0.2 — Basic Control Room (Next)
 
-- [ ] Next.js frontend
-- [ ] Dashboard UI
+- [x] Next.js frontend
+- [x] Dashboard UI
 - [ ] React Flow builder
 - [ ] WebSocket real-time logs
 
